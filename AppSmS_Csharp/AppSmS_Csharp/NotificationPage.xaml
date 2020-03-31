@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppSmS_Csharp.NotificationPage" 
+             Title="Notifications" IconImageSource="Notification">
+    <RelativeLayout>
+        <Image Source="LoveInCorona"
+               Aspect="AspectFill"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
+
+        <StackLayout 
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            Padding="20" Spacing="10"
+                     Orientation="Vertical"
+                     >
+            <ImageButton Source="LeftDirectionBack"
+                         Aspect="AspectFit" HeightRequest="30"
+                         WidthRequest="30"
+                         HorizontalOptions="Start"
+                         BackgroundColor="Transparent"/>
+
+            <Label Text="Notification" 
+                   FontSize="30" 
+                   FontAttributes="Bold" 
+                   TextColor="White"
+                   FontFamily="serif"
+                   Margin="0,28,0,28"/>
+
+            <ScrollView Orientation="Vertical">
+                <ListView x:Name="ListItemSourceNotification">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <ImageButton Source="{Binding ImageSource}"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding MsgNew}"/>
+                                        <Label Text="{Binding OldMsg}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>
